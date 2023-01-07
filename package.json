@@ -1,28 +1,28 @@
 {
-	"name": "birbone",
-	"version": "1.0.0",
-	"description": "birbone e-commerce website",
-	"author": "Mehdi Ghoulam<medghouly@gmail.com>",
-	"license": "MIT",
-	"scripts": {
-		"dev": "next dev",
-		"build": "next build",
-		"prettier": "prettier -write .",
-		"lint": "next lint"
-	},
-	"dependencies": {
-		"@chakra-ui/icons": "^2.0.13",
-		"@chakra-ui/react": "^2.4.3",
-		"@emotion/react": "^11.10.5",
-		"@emotion/styled": "^11.10.5",
-		"framer-motion": "^7.6.19",
-		"next": "^12.3.4",
-		"react": "^18.2.0",
-		"react-dom": "^18.2.0"
-	},
-	"devDependencies": {
-		"eslint": "^8.29.0",
-		"eslint-config-next": "^13.0.6",
-		"prettier": "^2.8.1"
-	}
+  "name": "sae-e-commerce",
+  "version": "1.0.0",
+  "description": "birbone e-commerce website",
+  "author": "Mehdi Ghoulam<medghouly@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "prettier": "prettier -write .",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@chakra-ui/icons": "^2.0.13",
+    "@chakra-ui/react": "^2.4.3",
+    "@emotion/react": "^11.10.5",
+    "@emotion/styled": "^11.10.5",
+    "framer-motion": "^7.6.19",
+    "next": "^12.3.4",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.29.0",
+    "eslint-config-next": "^13.0.6",
+    "prettier": "^2.8.1"
+  }
 }

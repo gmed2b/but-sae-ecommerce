@@ -1,22 +1,40 @@
-import { Container, Box, Heading } from '@chakra-ui/react'
+import { Box, Card, CardBody, Grid, Heading } from '@chakra-ui/react'
+import NewProduct from '../components/new-product'
+import ProductCard from '../components/product-card'
+import Promotions from '../components/promotions'
 
 const Page = () => {
   return (
-    <Container>
-      <Box borderRadius="lg" bg={'teal.300'} p={3} align="center">
-        I'd would like to be a fullstack developer and build things for the
-        mobile & web. Enjoy!
+    <Box>
+      <Box as="section" mb={16}>
+        <Promotions />
       </Box>
 
-      <Box display={{ md: 'flex' }}>
-        <Box flexGrow={1}>
-          <Heading as="h2" variant={'page-title'}>
-            Mehdi Ghoulam
+      <Box position={'relative'} as="section" py={10} mb={16}>
+        <NewProduct />
+      </Box>
+
+      <Box as="section" mb={16}>
+        <Box>
+          <Heading as="h1" size="2xl" mb={3}>
+            Notre sélection
           </Heading>
-          <p>MMI student at Corte (Corsica, France)</p>
+          <Grid
+            templateColumns={{
+              base: 'repeat(1, 1fr)',
+              md: 'repeat(2, 1fr)',
+              lg: 'repeat(4, 1fr)'
+            }}
+            gap={4}
+          >
+            <ProductCard />
+            <ProductCard promotion={{ amount: '37' }} />
+            <ProductCard />
+            <ProductCard isNew />
+          </Grid>
         </Box>
       </Box>
-    </Container>
+    </Box>
   )
 }
 
