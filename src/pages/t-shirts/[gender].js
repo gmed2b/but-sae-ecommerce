@@ -5,25 +5,53 @@ import {
   Heading,
   Drawer,
   DrawerBody,
-  DrawerFooter,
-  DrawerHeader,
   DrawerOverlay,
   DrawerContent,
   DrawerCloseButton,
   Button,
-  useDisclosure,
-  Input
+  useDisclosure
 } from '@chakra-ui/react'
 import { useRouter } from 'next/router'
 import AsideToolbox from '../../components/aside-toolbox'
 import ProductCard from '../../components/product-card'
-import { Search2Icon, SearchIcon } from '@chakra-ui/icons'
+import { Search2Icon } from '@chakra-ui/icons'
+import Pagination, { paginate } from '../../components/pagination'
+import { useDataLoader } from '@scaleway/use-dataloader'
 
 const Page = () => {
-  const { isOpen, onOpen, onClose } = useDisclosure()
-  const btnRef = React.useRef()
   const router = useRouter()
   const { gender } = router.query
+
+  const selectionData = useDataLoader('selection-data', async () => {
+    const response = await fetch(
+      'https://dummyjson.com/products/category/mens-shirts?limit=4'
+    )
+    return await response.json()
+  })
+
+  const { isOpen, onOpen, onClose } = useDisclosure()
+  const btnRef = React.useRef()
+
+  const [currentPage, setCurrentPage] = React.useState(1)
+  const pageSize = 10
+  const paginatedData = paginate(
+    selectionData.isSuccess ? selectionData.data.products : [],
+    currentPage,
+    pageSize
+  )
+
+  if (selectionData.isError) {
+    // Will display the error in the the div
+    return selectionData.map(request => request.error)
+  }
+  if (!selectionData.isSuccess) {
+    return <div>Something went wrong</div>
+  }
+
+  const onPageChange = page => {
+    setCurrentPage(page)
+    window.scrollTo(0, 0)
+  }
 
   return (
     <Box px={3} mb={16}>
@@ -50,10 +78,16 @@ const Page = () => {
             }}
             gap={4}
           >
-            {Array.from({ length: 89 }).map((_, index) => (
-              <ProductCard key={index} />
+            {paginatedData.map((item, index) => (
+              <ProductCard product={item} name={item.name} key={index} />
             ))}
           </Grid>
+          <Pagination
+            items={paginatedData.length}
+            currentPage={currentPage}
+            pageSize={pageSize}
+            onPageChange={onPageChange}
+          />
         </Box>
       </Grid>
 

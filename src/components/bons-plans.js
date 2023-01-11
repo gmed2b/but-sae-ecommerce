@@ -1,5 +1,4 @@
 import { Heading, VStack, SimpleGrid } from '@chakra-ui/react'
-import ProductCard from './product-card'
 
 const BonsPlans = ({ number = 42, heading = true }) => {
   return (

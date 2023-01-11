@@ -5,30 +5,32 @@ import {
   HStack,
   Button,
   Text,
-  Skeleton,
   Card,
-  Badge
+  Badge,
+  Img
 } from '@chakra-ui/react'
 
-const NewProduct = () => {
+const NewProduct = props => {
+  const { product } = props
+
   return (
     <Card p={5}>
-      <Flex direction={{ base: 'column', md: 'row' }} gap={5}>
+      <Flex
+        direction={{ base: 'column', md: 'row' }}
+        justify="space-between"
+        gap={5}
+      >
         <Box>
           <Heading as={'h3'} size={'sm'} mb={10} color={'gray.500'}>
             NOUVEAUTES
           </Heading>
-          <Heading as={'h1'} size={'2xl'} mb={2}>
-            Lorem ipsum
+          <Heading as={'h1'} size={'2xl'}>
+            {product.title}
           </Heading>
-          <Text fontSize={'xl'} mb={2} color={'gray.700'}>
-            LOREM IPSUM DOLOR SIT AMET
+          <Text fontSize={'xl'} mb={2} color={'gray.500'}>
+            {product.brand}
           </Text>
-          <Text fontSize={'sm'}>
-            LOREM IPSUM DOLOR SIT AMET VICIT CONSECTEJUR ARIBE APENRI KAEENA
-            ANAVOA KEOEN VERIFI DIME ATSAT OPCNAEIA NEPANCA HAIDA OEEH <br />
-            HAOE? LOGNC IAPO RAIF
-          </Text>
+          <Text fontSize={'sm'}>{product.description}</Text>
           <HStack mt={10}>
             <Button colorScheme={'red'}>Voir plus</Button>
             <Button colorScheme={'red'} variant="outline">
@@ -36,8 +38,8 @@ const NewProduct = () => {
             </Button>
           </HStack>
         </Box>
-        <Box position={'relative'} w={'lg'}>
-          <Skeleton h={'300px'} speed={30} />
+        <Box position={'relative'} justifyContent={'center'}>
+          <Img src={product.thumbnail} h={'300px'} />
           <Badge
             position={'absolute'}
             top={2}
