@@ -5,7 +5,6 @@ import {
   Center,
   Container,
   Divider,
-  Flex,
   HStack,
   IconButton,
   Link,
@@ -98,7 +97,12 @@ const Navbar = props => {
         <HStack gap={1}>
           <ShoppingCart />
           <Button variant="ghost" size="sm">
-            <Image src="/images/person.svg" width={22} height={22} />
+            <Image
+              src="/images/person.svg"
+              alt="person icon"
+              width={22}
+              height={22}
+            />
           </Button>
         </HStack>
 

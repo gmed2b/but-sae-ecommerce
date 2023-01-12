@@ -10,8 +10,7 @@ import {
   MenuButton,
   MenuItem,
   MenuList,
-  Text,
-  useColorModeValue
+  Text
 } from '@chakra-ui/react'
 import Logo from './Logo'
 import NavLinkItem from './nav-link-item'
@@ -107,7 +106,7 @@ const Footer = props => {
         </Box>
         <Box>
           <Center as="h2" fontSize="lg" fontWeight="bold" mb={3}>
-            Restez à l'affût !
+            Restez à l&apos;affût !
           </Center>
           <Text fontSize="sm">
             Inscrivez-vous à notre newsletter pour être informé de nos
@@ -123,7 +122,7 @@ const Footer = props => {
               _placeholder={{ color: 'red.100' }}
             />
             <Button colorScheme="red" mt={3}>
-              S'inscrire
+              S&apos;inscrire
             </Button>
           </Box>
         </Box>

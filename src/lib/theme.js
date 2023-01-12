@@ -30,7 +30,7 @@ const components = {
     })
   },
   Button: {
-    baseStyle: props => ({
+    baseStyle: () => ({
       borderRadius: 'none',
       textTransform: 'uppercase'
     })

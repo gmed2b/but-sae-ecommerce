@@ -41,8 +41,8 @@ const CartItem = props => {
 }
 
 const CartPage = () => {
-  const [cartItemList, setCartItemList] = React.useState(DATA)
-  const [totalPrice, setTotalPrice] = React.useState(
+  const [cartItemList] = React.useState(DATA)
+  const [totalPrice] = React.useState(
     cartItemList.reduce((acc, current) => {
       return acc + current.quantity * current.price
     }, 0)

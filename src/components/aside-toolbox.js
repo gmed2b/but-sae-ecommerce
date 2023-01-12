@@ -1,6 +1,5 @@
 import React from 'react'
 import {
-  Box,
   Text,
   Heading,
   Checkbox,
@@ -42,7 +41,6 @@ const AsideToolbox = () => {
           <Text>{priceMaxValue} €</Text>
         </HStack>
         <RangeSlider
-          aria-label={['min', 'max']}
           min={20}
           max={299}
           value={[priceMinValue, priceMaxValue]}

@@ -44,8 +44,8 @@ const CartItem = props => {
 }
 
 const ShoppingCart = () => {
-  const [cartItemList, setCartItemList] = React.useState(DATA)
-  const [totalPrice, setTotalPrice] = React.useState(
+  const [cartItemList] = React.useState(DATA)
+  const [totalPrice] = React.useState(
     cartItemList.reduce((acc, current) => {
       return acc + current.quantity * current.price
     }, 0)
@@ -56,7 +56,14 @@ const ShoppingCart = () => {
       <Box position={'relative'}>
         <MenuButton
           as={IconButton}
-          icon={<Image src="/images/basket.svg" width={22} height={22} />}
+          icon={
+            <Image
+              src="/images/basket.svg"
+              alt="basket icon"
+              width={22}
+              height={22}
+            />
+          }
           variant="ghost"
           aria-label="Options"
         />

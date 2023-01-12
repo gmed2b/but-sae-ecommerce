@@ -1,5 +1,6 @@
 import {
   Box,
+  Center,
   Grid,
   GridItem,
   Heading,
@@ -30,7 +31,11 @@ const Page = () => {
     requests.every(request => request.isLoading) &&
     requests.every(request => !request.data)
   ) {
-    return <div>Loading...</div>
+    return (
+      <Box as="section" h={'100vh'}>
+        <Center fontSize={'xl'}>Loading...</Center>
+      </Box>
+    )
   }
 
   // Will be false when the promise is rejected
