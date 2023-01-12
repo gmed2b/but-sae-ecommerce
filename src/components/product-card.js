@@ -17,12 +17,11 @@ const ProductCard = props => {
   return (
     <Box>
       <Box position={'relative'}>
-        <Img src={product.thumbnail ?? ''} h={'300px'} w={'100%'} />
+        <Img src={'/images/hoodie.webp'} boxSize={'300px'} />
         {isNew && (
           <Badge
             position={'absolute'}
             top={2}
-            right={2}
             colorScheme="green"
             fontSize={'1rem'}
           >

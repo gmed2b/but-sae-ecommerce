@@ -1,4 +1,6 @@
 import React from 'react'
+import { useDataLoader } from '@scaleway/use-dataloader'
+import { useRouter } from 'next/router'
 import {
   Box,
   Grid,
@@ -11,12 +13,10 @@ import {
   Button,
   useDisclosure
 } from '@chakra-ui/react'
-import { useRouter } from 'next/router'
+import { Search2Icon } from '@chakra-ui/icons'
 import AsideToolbox from '../../components/aside-toolbox'
 import ProductCard from '../../components/product-card'
-import { Search2Icon } from '@chakra-ui/icons'
 import Pagination, { paginate } from '../../components/pagination'
-import { useDataLoader } from '@scaleway/use-dataloader'
 
 const Page = () => {
   const router = useRouter()
@@ -116,7 +116,6 @@ const Page = () => {
         <DrawerOverlay />
         <DrawerContent>
           <DrawerCloseButton />
-
           <DrawerBody mt={10}>
             <AsideToolbox />
           </DrawerBody>

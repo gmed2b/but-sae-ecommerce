@@ -14,32 +14,24 @@ import ProductCard from '../components/product-card'
 
 const Page = () => {
   const selectionData = useDataLoader('selection-data', async () => {
-    const response = await fetch(
-      'https://dummyjson.com/products/category/mens-shirts?limit=4'
-    )
+    const response = await fetch('https://dummyjson.com/products/category/tops')
     return await response.json()
   })
   const newProductData = useDataLoader('new-product-data', async () => {
     const response = await fetch(
-      'https://dummyjson.com/products/category/womens-dresses?limit=1'
+      'https://dummyjson.com/products/category/mens-shirts?limit=1&skip=1'
     )
     return await response.json()
   })
-  const showcaseData = useDataLoader('showcase-data', async () => {
-    const response = await fetch(
-      'https://dummyjson.com/products/category/tops?limit=2&skip=3'
-    )
-    return await response.json()
-  })
-  const requests = [selectionData, newProductData, showcaseData]
+  const requests = [selectionData, newProductData]
 
   // check if all the requests are loading
-  // if (
-  //   requests.every(request => request.isLoading) &&
-  //   requests.every(request => !request.data)
-  // ) {
-  //   return <div>Loading...</div>
-  // }
+  if (
+    requests.every(request => request.isLoading) &&
+    requests.every(request => !request.data)
+  ) {
+    return <div>Loading...</div>
+  }
 
   // Will be false when the promise is rejected
   if (requests.some(request => request.isError)) {
@@ -49,6 +41,10 @@ const Page = () => {
 
   if (requests.some(request => !request.isSuccess)) {
     return <div>Something went wrong</div>
+  } else {
+    for (let i = 0; i < 3; i++) {
+      selectionData.data.products.push(selectionData.data.products[i])
+    }
   }
 
   return (
@@ -58,26 +54,19 @@ const Page = () => {
           h={{ base: '800px', lg: '600px' }}
           templateRows={{ base: 'repeat(2, 1fr)', lg: 'repeat(1, 1fr)' }}
           templateColumns={{ base: 'repeat(1, 1fr)', lg: 'repeat(5, 1fr)' }}
+          overflow="hidden"
           gap={1}
         >
-          {showcaseData.data.products.map((product, idx) => {
-            return (
-              <GridItem
-                key={product.id}
-                colSpan={{ base: 1, lg: idx === 0 ? 3 : 2 }}
-                h={'100%'}
-              >
-                <Skeleton
-                  w={'100%'}
-                  h={'100%'}
-                  speed={20}
-                  isLoaded={showcaseData.isLoading}
-                >
-                  {/* <Img src={product.thumbnail} h={'auto'} w={'auto'} /> */}
-                </Skeleton>
-              </GridItem>
-            )
-          })}
+          <GridItem colSpan={{ base: 1, lg: 3 }} h={'100%'}>
+            <Skeleton isLoaded={!selectionData.isLoading}>
+              <Img src={'/images/jogger.webp'} />
+            </Skeleton>
+          </GridItem>
+          <GridItem colSpan={{ base: 1, lg: 2 }} h={'100%'}>
+            <Skeleton isLoaded={!selectionData.isLoading}>
+              <Img src={'/images/hoodie_big.webp'} />
+            </Skeleton>
+          </GridItem>
         </Grid>
       </Box>
 
@@ -112,15 +101,14 @@ const Page = () => {
                 <Skeleton
                   w={'100%'}
                   h={'70%'}
-                  speed={20}
-                  isLoaded={!showcaseData.isLoading}
+                  isLoaded={!selectionData.isLoading}
                 >
                   {productItem}
                 </Skeleton>
                 <SkeletonText
                   noOfLines={4}
                   spacing="4"
-                  isLoaded={!showcaseData.isLoading}
+                  isLoaded={!selectionData.isLoading}
                 />
               </VStack>
             )

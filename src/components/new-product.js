@@ -39,7 +39,7 @@ const NewProduct = props => {
           </HStack>
         </Box>
         <Box position={'relative'} justifyContent={'center'}>
-          <Img src={product.thumbnail} h={'300px'} />
+          <Img src={'/images/jogger.webp'} h={'300px'} />
           <Badge
             position={'absolute'}
             top={2}
