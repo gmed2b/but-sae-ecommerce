@@ -8,7 +8,7 @@ import {
   VStack
 } from '@chakra-ui/react'
 
-const SearchBar = props => {
+const SearchBar = () => {
   return (
     <VStack align={'start'}>
       <Heading size="lg">Rechercher</Heading>

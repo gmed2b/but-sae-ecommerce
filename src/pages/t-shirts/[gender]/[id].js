@@ -7,11 +7,6 @@ import {
   HStack,
   Image,
   Link,
-  NumberDecrementStepper,
-  NumberIncrementStepper,
-  NumberInput,
-  NumberInputField,
-  NumberInputStepper,
   Select,
   Text,
   VStack

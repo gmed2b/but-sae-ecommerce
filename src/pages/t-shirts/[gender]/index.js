@@ -27,6 +27,7 @@ import NextLink from 'next/link'
 const GENDER = ['homme', 'femme', 'enfant']
 
 const Page = () => {
+  const linkColor = useColorModeValue('black', 'white')
   const router = useRouter()
   const { gender } = router.query
 
@@ -34,7 +35,7 @@ const Page = () => {
     if (!GENDER.includes(gender)) {
       router.push('/t-shirts/homme')
     }
-  }, [])
+  }, [gender, router])
 
   const selectionData = useDataLoader('selection-data', async () => {
     const response = await fetch(
@@ -102,7 +103,7 @@ const Page = () => {
           >
             {paginatedData.map((item, index) => (
               <NextLink href={`${gender}/${item.id}`} key={index}>
-                <Link color={useColorModeValue('black', 'white')}>
+                <Link color={linkColor}>
                   <ProductCard product={item} name={item.name} />
                 </Link>
               </NextLink>

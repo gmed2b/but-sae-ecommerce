@@ -17,6 +17,8 @@ import NewProduct from '../components/new-product'
 import ProductCard from '../components/product-card'
 
 const Page = () => {
+  const linkColor = useColorModeValue('black', 'white')
+
   const selectionData = useDataLoader('selection-data', async () => {
     const response = await fetch('https://dummyjson.com/products/category/tops')
     return await response.json()
@@ -104,9 +106,7 @@ const Page = () => {
                   isLoaded={!selectionData.isLoading}
                 >
                   <NextLink href={`t-shirts/homme/${product.id}`}>
-                    <Link color={useColorModeValue('black', 'white')}>
-                      {productItem}
-                    </Link>
+                    <Link color={linkColor}>{productItem}</Link>
                   </NextLink>
                 </Skeleton>
                 <SkeletonText

@@ -8,7 +8,9 @@
     "dev": "next dev --port 6942",
     "build": "next build",
     "prettier": "prettier -w .",
-    "lint": "next lint"
+    "lint": "next lint",
+    "docker:build": "sudo docker compose -f docker-compose.prod.yml up --build --force-recreate",
+    "docker:dev": "sudo docker compose -f docker-compose.yml up --build --force-recreate"
   },
   "dependencies": {
     "@chakra-ui/icons": "^2.0.13",

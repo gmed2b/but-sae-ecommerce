@@ -12,10 +12,8 @@ import {
   List,
   ListItem,
   Button,
-  HStack,
-  Input
+  HStack
 } from '@chakra-ui/react'
-import { SearchIcon } from '@chakra-ui/icons'
 
 const AsideToolbox = () => {
   const [priceMinValue, setPriceMinValue] = React.useState(20)
