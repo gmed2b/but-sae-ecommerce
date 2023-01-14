@@ -9,8 +9,7 @@
     "build": "next build",
     "prettier": "prettier -w .",
     "lint": "next lint",
-    "docker:build": "sudo docker compose -f docker-compose.prod.yml up --build --force-recreate",
-    "docker:dev": "sudo docker compose -f docker-compose.yml up --build --force-recreate"
+    "docker": "bash buildDocker.sh"
   },
   "dependencies": {
     "@chakra-ui/icons": "^2.0.13",
