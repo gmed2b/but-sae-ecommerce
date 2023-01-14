@@ -15,31 +15,33 @@ const ProductCard = props => {
     return <Skeleton h={'300px'} w={'100%'} speed={10} />
 
   return (
-    <Box>
-      <Box position={'relative'} display={'flex'} justifyContent={'center'}>
-        <Img src={'/images/hoodie.webp'} boxSize={'300px'} />
-        {isNew && (
-          <Badge
-            position={'absolute'}
-            left={2}
-            top={2}
-            colorScheme="green"
-            fontSize={'1rem'}
-          >
-            NEW
-          </Badge>
-        )}
-        {promotion && (
-          <Badge
-            position={'absolute'}
-            top={2}
-            right={2}
-            colorScheme="red"
-            fontSize={'1rem'}
-          >
-            PROMO
-          </Badge>
-        )}
+    <>
+      <Box display={'flex'} justifyContent={'center'}>
+        <Box position={'relative'}>
+          <Img src={'/images/hoodie.webp'} boxSize={'300px'} />
+          {isNew && (
+            <Badge
+              position={'absolute'}
+              left={2}
+              top={2}
+              colorScheme="green"
+              fontSize={'1rem'}
+            >
+              NEW
+            </Badge>
+          )}
+          {promotion && (
+            <Badge
+              position={'absolute'}
+              top={2}
+              right={2}
+              colorScheme="red"
+              fontSize={'1rem'}
+            >
+              PROMO
+            </Badge>
+          )}
+        </Box>
       </Box>
       <VStack align={'flex-start'} mt={5}>
         <Heading as={'h1'} size={'md'}>
@@ -69,7 +71,7 @@ const ProductCard = props => {
           )}
         </HStack>
       </VStack>
-    </Box>
+    </>
   )
 }
 

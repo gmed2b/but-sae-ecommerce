@@ -31,22 +31,17 @@ const Page = () => {
   })
   const requests = [selectionData, newProductData]
 
-  // check if all the requests are loading
+  if (requests.some(request => request.isError)) {
+    return requests.map(request => request.error)
+  }
+  if (requests.some(request => !request.isSuccess)) {
+    return <div>Something went wrong</div>
+  }
   if (
     requests.every(request => request.isLoading) &&
     requests.every(request => !request.data)
   ) {
     return <Loading />
-  }
-
-  // Will be false when the promise is rejected
-  if (requests.some(request => request.isError)) {
-    // Will display the error in the the div
-    return requests.map(request => request.error)
-  }
-
-  if (requests.some(request => !request.isSuccess)) {
-    return <div>Something went wrong</div>
   }
 
   return (

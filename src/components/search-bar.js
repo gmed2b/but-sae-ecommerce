@@ -14,8 +14,16 @@ const SearchBar = () => {
       <Heading size="lg">Rechercher</Heading>
       <Divider mb={4} borderWidth={1} borderColor={'gray.500'} />
       <HStack>
-        <Input placeholder="Rechercher" />
-        <Button colorScheme="red" size="sm" mt={2}>
+        <Input
+          placeholder="Rechercher"
+          _focus={{
+            borderColor: 'fireRed'
+          }}
+          _focusVisible={{
+            borderColor: 'fireRed'
+          }}
+        />
+        <Button bgColor={'fireRed'} color={'white'} size="sm" mt={2}>
           <SearchIcon />
         </Button>
       </HStack>

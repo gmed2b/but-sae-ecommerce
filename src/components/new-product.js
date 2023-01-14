@@ -32,23 +32,27 @@ const NewProduct = props => {
           </Text>
           <Text fontSize={'sm'}>{product.description}</Text>
           <HStack mt={10}>
-            <Button colorScheme={'red'}>Voir plus</Button>
-            <Button colorScheme={'red'} variant="outline">
+            <Button bgColor={'fireRed'} color={'white'}>
+              Voir plus
+            </Button>
+            <Button borderColor={'fireRed'} color={'fireRed'} variant="outline">
               Ajouter au panier
             </Button>
           </HStack>
         </Box>
-        <Box position={'relative'} justifyContent={'center'}>
-          <Img src={'/images/jogger.webp'} h={'300px'} />
-          <Badge
-            position={'absolute'}
-            top={2}
-            left={2}
-            colorScheme="green"
-            fontSize={'1rem'}
-          >
-            NEW
-          </Badge>
+        <Box display={'flex'} justifyContent={'center'}>
+          <Box position={'relative'}>
+            <Img src={'/images/jogger.webp'} h={'300px'} />
+            <Badge
+              position={'absolute'}
+              top={2}
+              left={2}
+              colorScheme="green"
+              fontSize={'1rem'}
+            >
+              NEW
+            </Badge>
+          </Box>
         </Box>
       </Flex>
     </Card>

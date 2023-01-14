@@ -37,15 +37,15 @@ const Page = () => {
     }
   }, [gender, router])
 
+  const { isOpen, onOpen, onClose } = useDisclosure()
+  const btnRef = React.useRef()
+
   const selectionData = useDataLoader('selection-data', async () => {
     const response = await fetch(
       'https://dummyjson.com/products/category/mens-shirts?limit=4'
     )
     return await response.json()
   })
-
-  const { isOpen, onOpen, onClose } = useDisclosure()
-  const btnRef = React.useRef()
 
   const [currentPage, setCurrentPage] = React.useState(1)
   const pageSize = 10
@@ -122,21 +122,23 @@ const Page = () => {
         display={{ base: 'flex', md: 'none' }}
         ref={btnRef}
         onClick={onOpen}
-        size="lg"
+        size="md"
         position="fixed"
-        bottom={10}
-        right={10}
-        width="60px"
-        height="60px"
+        bottom={5}
+        right={5}
+        width="50px"
+        height="50px"
         borderRadius="30%"
-        colorScheme="red"
+        backgroundColor="fireRed"
+        color="white"
+        zIndex={10}
       >
         <Search2Icon />
       </Button>
 
       <Drawer
         isOpen={isOpen}
-        placement="right"
+        placement="left"
         onClose={onClose}
         finalFocusRef={btnRef}
       >

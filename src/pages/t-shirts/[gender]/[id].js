@@ -44,7 +44,7 @@ const Page = () => {
           </Select>
           <Link>Guide des tailles</Link>
           <HStack>
-            <Button colorScheme={'red'} variant="solid">
+            <Button bgColor={'fireRed'} color={'white'} variant="solid">
               Ajouter au panier
             </Button>
             <Button colorScheme={'red'} variant="outline">

@@ -2,6 +2,7 @@ import {
   Box,
   Button,
   Center,
+  Flex,
   HStack,
   Input,
   List,
@@ -27,7 +28,12 @@ const Footer = props => {
       py={5}
       gap={5}
     >
-      <HStack align="stretch" justify="space-evenly" gap={10}>
+      <Flex
+        flexDir={{ base: 'column', md: 'row' }}
+        align="stretch"
+        justify="space-evenly"
+        gap={10}
+      >
         <Box>
           <Center
             as="h2"
@@ -135,12 +141,12 @@ const Footer = props => {
               _focus={{ borderColor: 'red.100' }}
               borderColor={'red.100'}
             />
-            <Button colorScheme="red" mt={3}>
+            <Button variant={'solid'} colorScheme="red" mt={3}>
               S&apos;inscrire
             </Button>
           </VStack>
         </Box>
-      </HStack>
+      </Flex>
       <HStack justifyContent={'space-around'} alignItems={'center'} w={'100%'}>
         <HStack>
           <Logo color={'white'} />

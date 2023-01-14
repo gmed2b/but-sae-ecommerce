@@ -39,11 +39,11 @@ const Navbar = props => {
         display="flex"
         p={3}
         maxW="container.lg"
-        wrap="wrap"
-        align="center"
-        justify="space-between"
+        alignItems="center"
+        justifyContent="space-between"
       >
         <Logo />
+
         <Stack
           direction={{ base: 'column', md: 'row' }}
           display={{ base: 'none', md: 'flex' }}
@@ -95,78 +95,82 @@ const Navbar = props => {
             Qui sommes-nous ?
           </NavLinkItem>
         </Stack>
-        <HStack gap={1}>
-          <ShoppingCart />
-          <Button variant="ghost" size="sm">
-            <Image
-              src="/images/person.svg"
-              alt="person icon"
-              width={22}
-              height={22}
-            />
-          </Button>
-        </HStack>
 
-        <Box display={{ base: 'block', md: 'none' }} ms={2}>
-          <Box ml={2} display={{ base: 'inline-block', md: 'none' }}>
-            <Menu>
-              <MenuButton
-                as={IconButton}
-                icon={<HamburgerIcon />}
-                variant="outline"
-                aria-label="Options"
+        <HStack>
+          {/* ICONS */}
+          <HStack gap={1}>
+            <ShoppingCart />
+            <Button variant="ghost" size="sm">
+              <Image
+                src="/images/person.svg"
+                alt="person icon"
+                width={22}
+                height={22}
               />
-              <MenuList>
-                <NextLink href={'/'} passHref>
-                  <MenuItem as={Link}>Accueil</MenuItem>
-                </NextLink>
-                <Divider />
+            </Button>
+          </HStack>
+          {/* MENU MOBILE */}
+          <Box display={{ base: 'block', md: 'none' }} ms={2}>
+            <Box ml={2} display={{ base: 'inline-block', md: 'none' }}>
+              <Menu>
+                <MenuButton
+                  as={IconButton}
+                  icon={<HamburgerIcon />}
+                  variant="outline"
+                  aria-label="Options"
+                />
+                <MenuList>
+                  <NextLink href={'/'} passHref>
+                    <MenuItem as={Link}>Accueil</MenuItem>
+                  </NextLink>
+                  <Divider />
 
-                <Text textAlign={'start'} ps={3} pt={1}>
-                  Nos T-Shirts
-                </Text>
-                <List>
-                  <ListItem>
-                    <NextLink href={'/t-shirts/homme'} passHref>
-                      <MenuItem as={Link} ps={5}>
-                        Homme
-                      </MenuItem>
-                    </NextLink>
-                  </ListItem>
-                  <ListItem>
-                    <NextLink href={'/t-shirts/femme'} passHref>
-                      <MenuItem as={Link} ps={5}>
-                        Femme
-                      </MenuItem>
-                    </NextLink>
-                  </ListItem>
-                  <ListItem>
-                    <NextLink href={'/t-shirts/enfant'} passHref>
-                      <MenuItem as={Link} ps={5}>
-                        Enfant
-                      </MenuItem>
-                    </NextLink>
-                  </ListItem>
-                </List>
-                <Divider />
+                  <Text textAlign={'start'} ps={3} pt={1}>
+                    Nos T-Shirts
+                  </Text>
+                  <List>
+                    <ListItem>
+                      <NextLink href={'/t-shirts/homme'} passHref>
+                        <MenuItem as={Link} ps={5}>
+                          Homme
+                        </MenuItem>
+                      </NextLink>
+                    </ListItem>
+                    <ListItem>
+                      <NextLink href={'/t-shirts/femme'} passHref>
+                        <MenuItem as={Link} ps={5}>
+                          Femme
+                        </MenuItem>
+                      </NextLink>
+                    </ListItem>
+                    <ListItem>
+                      <NextLink href={'/t-shirts/enfant'} passHref>
+                        <MenuItem as={Link} ps={5}>
+                          Enfant
+                        </MenuItem>
+                      </NextLink>
+                    </ListItem>
+                  </List>
+                  <Divider />
 
-                <NextLink href={'/bons-plans'} passHref>
-                  <MenuItem as={Link}>Nos bons plans</MenuItem>
-                </NextLink>
-                <Divider />
+                  <NextLink href={'/bons-plans'} passHref>
+                    <MenuItem as={Link}>Nos bons plans</MenuItem>
+                  </NextLink>
+                  <Divider />
 
-                <NextLink href={'/a-propos'} passHref>
-                  <MenuItem as={Link}>Qui sommes-nous ?</MenuItem>
-                </NextLink>
-                <Divider />
+                  <NextLink href={'/a-propos'} passHref>
+                    <MenuItem as={Link}>Qui sommes-nous ?</MenuItem>
+                  </NextLink>
+                  <Divider />
 
-                <Center mt={2}>
-                  <ThemeToggleButton />
-                </Center>
-              </MenuList>
-            </Menu>
+                  <Center mt={2}>
+                    <ThemeToggleButton />
+                  </Center>
+                </MenuList>
+              </Menu>
+            </Box>
           </Box>
-        </Box>
+        </HStack>
       </Container>
     </Box>
   )

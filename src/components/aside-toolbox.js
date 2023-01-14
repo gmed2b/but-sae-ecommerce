@@ -36,10 +36,9 @@ const AsideToolbox = () => {
             setPriceMinValue(values[0])
             setPriceMaxValue(values[1])
           }}
-          colorScheme={'red'}
         >
           <RangeSliderTrack>
-            <RangeSliderFilledTrack />
+            <RangeSliderFilledTrack bg={'fireRed'} />
           </RangeSliderTrack>
           <RangeSliderThumb index={0} />
           <RangeSliderThumb index={1} />
@@ -50,38 +49,40 @@ const AsideToolbox = () => {
         <Divider mb={4} borderWidth={1} borderColor={'gray.500'} />
         <List>
           <ListItem>
-            <Checkbox size={'lg'} colorScheme={'red'} borderColor={'red.100'}>
+            <Checkbox size={'lg'} colorScheme={'red'}>
               XS
             </Checkbox>
           </ListItem>
           <ListItem>
-            <Checkbox size={'lg'} colorScheme={'red'} borderColor={'red.100'}>
+            <Checkbox size={'lg'} colorScheme={'red'}>
               S
             </Checkbox>
           </ListItem>
           <ListItem>
-            <Checkbox size={'lg'} colorScheme={'red'} borderColor={'red.100'}>
+            <Checkbox size={'lg'} colorScheme={'red'}>
               M
             </Checkbox>
           </ListItem>
           <ListItem>
-            <Checkbox size={'lg'} colorScheme={'red'} borderColor={'red.100'}>
+            <Checkbox size={'lg'} colorScheme={'red'}>
               L
             </Checkbox>
           </ListItem>
           <ListItem>
-            <Checkbox size={'lg'} colorScheme={'red'} borderColor={'red.100'}>
+            <Checkbox size={'lg'} colorScheme={'red'}>
               XL
             </Checkbox>
           </ListItem>
           <ListItem>
-            <Checkbox size={'lg'} colorScheme={'red'} borderColor={'red.100'}>
+            <Checkbox size={'lg'} colorScheme={'red'}>
               XXL
             </Checkbox>
           </ListItem>
         </List>
       </VStack>
-      <Button colorScheme={'red'}>Filtrer</Button>
+      <Button bgColor={'fireRed'} color={'white'}>
+        Filtrer
+      </Button>
     </VStack>
   )
 }
