@@ -5,7 +5,7 @@
   "author": "Mehdi Ghoulam<medghouly@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --port 6942",
     "build": "next build",
     "prettier": "prettier -w .",
     "lint": "next lint"

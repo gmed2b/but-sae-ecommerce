@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useDataLoader } from '@scaleway/use-dataloader'
 import { useRouter } from 'next/router'
 import {
@@ -11,16 +11,30 @@ import {
   DrawerContent,
   DrawerCloseButton,
   Button,
-  useDisclosure
+  useDisclosure,
+  VStack,
+  Link,
+  useColorModeValue
 } from '@chakra-ui/react'
 import { Search2Icon } from '@chakra-ui/icons'
-import AsideToolbox from '../../components/aside-toolbox'
-import ProductCard from '../../components/product-card'
-import Pagination, { paginate } from '../../components/pagination'
+import SearchBar from '../../../components/search-bar'
+import AsideToolbox from '../../../components/aside-toolbox'
+import ProductCard from '../../../components/product-card'
+import Pagination, { paginate } from '../../../components/pagination'
+import Loading from '../../../components/loading'
+import NextLink from 'next/link'
+
+const GENDER = ['homme', 'femme', 'enfant']
 
 const Page = () => {
   const router = useRouter()
   const { gender } = router.query
+
+  useEffect(() => {
+    if (!GENDER.includes(gender)) {
+      router.push('/t-shirts/homme')
+    }
+  }, [])
 
   const selectionData = useDataLoader('selection-data', async () => {
     const response = await fetch(
@@ -40,6 +54,9 @@ const Page = () => {
     pageSize
   )
 
+  if (selectionData.isLoading && !selectionData.data) {
+    return <Loading />
+  }
   if (selectionData.isError) {
     // Will display the error in the the div
     return selectionData.map(request => request.error)
@@ -63,9 +80,14 @@ const Page = () => {
         }}
         gap={10}
       >
-        <Box display={{ base: 'none', md: 'block' }}>
+        <VStack
+          display={{ base: 'none', md: 'flex' }}
+          alignItems={'stretch'}
+          gap={10}
+        >
+          <SearchBar />
           <AsideToolbox />
-        </Box>
+        </VStack>
         <Box>
           <Heading as="h1" size="lg" mb={3}>
             T-shirts {gender}
@@ -79,7 +101,11 @@ const Page = () => {
             gap={4}
           >
             {paginatedData.map((item, index) => (
-              <ProductCard product={item} name={item.name} key={index} />
+              <NextLink href={`${gender}/${item.id}`} key={index}>
+                <Link color={useColorModeValue('black', 'white')}>
+                  <ProductCard product={item} name={item.name} />
+                </Link>
+              </NextLink>
             ))}
           </Grid>
           <Pagination

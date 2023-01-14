@@ -16,11 +16,12 @@ const ProductCard = props => {
 
   return (
     <Box>
-      <Box position={'relative'}>
+      <Box position={'relative'} display={'flex'} justifyContent={'center'}>
         <Img src={'/images/hoodie.webp'} boxSize={'300px'} />
         {isNew && (
           <Badge
             position={'absolute'}
+            left={2}
             top={2}
             colorScheme="green"
             fontSize={'1rem'}

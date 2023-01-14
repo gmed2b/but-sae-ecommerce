@@ -1,15 +1,18 @@
 import {
   Box,
-  Center,
   Grid,
   GridItem,
   Heading,
   Img,
+  Link,
   Skeleton,
   SkeletonText,
+  useColorModeValue,
   VStack
 } from '@chakra-ui/react'
+import NextLink from 'next/link'
 import { useDataLoader } from '@scaleway/use-dataloader'
+import Loading from '../components/loading'
 import NewProduct from '../components/new-product'
 import ProductCard from '../components/product-card'
 
@@ -31,11 +34,7 @@ const Page = () => {
     requests.every(request => request.isLoading) &&
     requests.every(request => !request.data)
   ) {
-    return (
-      <Box as="section" h={'100vh'}>
-        <Center fontSize={'xl'}>Loading...</Center>
-      </Box>
-    )
+    return <Loading />
   }
 
   // Will be false when the promise is rejected
@@ -46,10 +45,6 @@ const Page = () => {
 
   if (requests.some(request => !request.isSuccess)) {
     return <div>Something went wrong</div>
-  } else {
-    for (let i = 0; i < 3; i++) {
-      selectionData.data.products.push(selectionData.data.products[i])
-    }
   }
 
   return (
@@ -108,7 +103,11 @@ const Page = () => {
                   h={'70%'}
                   isLoaded={!selectionData.isLoading}
                 >
-                  {productItem}
+                  <NextLink href={`t-shirts/homme/${product.id}`}>
+                    <Link color={useColorModeValue('black', 'white')}>
+                      {productItem}
+                    </Link>
+                  </NextLink>
                 </Skeleton>
                 <SkeletonText
                   noOfLines={4}

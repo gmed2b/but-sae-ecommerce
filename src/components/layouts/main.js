@@ -5,7 +5,7 @@ import Footer from '../footer'
 
 const Main = ({ children, router }) => {
   return (
-    <Box as="main" minH={'100%'}>
+    <Box as="main" minH={'100%'} display={'flex'} flexDir={'column'}>
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>E-Commerce | Birbone</title>

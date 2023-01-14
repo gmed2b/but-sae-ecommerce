@@ -24,16 +24,6 @@ const AsideToolbox = () => {
   return (
     <VStack spacing={12} align="stretch">
       <VStack align={'start'}>
-        <Heading size="lg">Rechercher</Heading>
-        <Divider mb={4} borderWidth={1} borderColor={'gray.500'} />
-        <HStack>
-          <Input placeholder="Rechercher" />
-          <Button colorScheme="red" size="sm" mt={2}>
-            <SearchIcon />
-          </Button>
-        </HStack>
-      </VStack>
-      <VStack align={'start'}>
         <Heading size="lg">Prix</Heading>
         <Divider mb={4} borderWidth={1} borderColor={'gray.500'} />
         <HStack w={'100%'} justify={'space-between'}>

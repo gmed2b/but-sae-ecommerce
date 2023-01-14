@@ -20,7 +20,7 @@ import {
 } from '@chakra-ui/react'
 import { HamburgerIcon } from '@chakra-ui/icons'
 import ThemeToggleButton from './theme-toggle-button'
-import Logo from './Logo'
+import Logo from './logo'
 import NavLinkItem from './nav-link-item'
 import Image from 'next/image'
 import ShoppingCart from './shopping-cart'
@@ -50,7 +50,8 @@ const Navbar = props => {
           width={{ base: 'full', md: 'auto' }}
           alignItems="center"
           justifyContent="center"
-          gap={4}
+          flexWrap={'wrap'}
+          gap={{ md: 1, lg: 4 }}
           flexGrow={1}
           mt={{ base: 4, md: 0 }}
         >
