@@ -2,10 +2,11 @@ version: '3'
 
 services:
   app:
-    image: docker-nextjs-dev
-    build: .
+    image: sae-ecommerce
+    container_name: sae-ecommerce
+    build:
+      dockerfile: Dockerfile.prod
+      context: .
     ports:
-      - 6942:6942
-    volumes:
-      - ./src:/app/src
-      - ./public:/app/public
+      - 3100:3000
+    restart: unless-stopped

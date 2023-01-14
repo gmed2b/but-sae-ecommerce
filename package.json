@@ -9,7 +9,8 @@
     "build": "next build",
     "prettier": "prettier -w .",
     "lint": "next lint",
-    "docker": "bash buildDocker.sh"
+    "docker:build": "bash ./scripts/docker-build.sh",
+    "docker:run": "bash ./scripts/docker-run.sh"
   },
   "dependencies": {
     "@chakra-ui/icons": "^2.0.13",

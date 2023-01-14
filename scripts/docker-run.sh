@@ -1,0 +1,1 @@
+sudo docker run --name sae-ecommerce -p 3100:3000/tcp -d sae-ecommerce
