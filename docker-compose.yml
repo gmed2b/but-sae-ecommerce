@@ -5,7 +5,7 @@ services:
     image: sae-ecommerce
     container_name: sae-ecommerce
     build:
-      dockerfile: Dockerfile.prod
+      dockerfile: Dockerfile
       context: .
     ports:
       - 3100:3000

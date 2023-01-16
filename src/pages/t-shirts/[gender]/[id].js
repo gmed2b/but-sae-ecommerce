@@ -14,29 +14,8 @@ import {
   VStack
 } from '@chakra-ui/react'
 import { BsHandThumbsUp, BsHandThumbsDown } from 'react-icons/bs'
-import Loading from '../../../components/loading'
-import { useDataLoader } from '@scaleway/use-dataloader'
-import { useRouter } from 'next/router'
-import { useEffect, useState } from 'react'
 
 const Page = () => {
-  const router = useRouter()
-  const { id } = router.query
-
-  const request = useDataLoader('tshirt', async () => {
-    if (id === undefined) return Promise.resolve({})
-    const response = await fetch(`https://dummyjson.com/products/${id}`)
-    return await response.json()
-  })
-
-  if (request.isLoading && !request.data) {
-    return <Loading />
-  }
-  if (request.isError) {
-    // Will display the error in the the div
-    return request.map(request => request.error)
-  }
-
   return (
     <Box px={3}>
       <Flex
@@ -48,11 +27,12 @@ const Page = () => {
       >
         <VStack flex={1} alignItems={'flex-start'}>
           <Heading as={'h2'} size={'md'}>
-            {request.data.brand}
+            Professional Wear
           </Heading>
-          <Heading as={'h1'}>{request.data.title}</Heading>
+          <Heading as={'h1'}>Sleeve Shirt Womens</Heading>
           <Text as={'p'} pb={10}>
-            {request.data.description}
+            Cotton Solid Color Professional Wear Sleeve Shirt Womens Work
+            Blouses Wholesale Clothing Casual Plain Custom Top OEM Customized
           </Text>
           <Select placeholder="Votre taille" w={'56'}>
             <option value="36">36</option>
@@ -145,11 +125,11 @@ const Page = () => {
       <VStack justifyContent={'center'} mb={8}>
         <VStack alignItems={'flex-start'}>
           <Text>Nom</Text>
-          <Input placeholder="Nom" w={'md'} />
+          <Input placeholder="Nom" />
         </VStack>
         <VStack alignItems={'flex-start'}>
           <Text>Message</Text>
-          <Textarea placeholder="Message" w={'md'} />
+          <Textarea placeholder="Message" />
         </VStack>
         <Button bgColor={'fireRed'} color={'white'} variant="solid">
           Envoyer

@@ -100,14 +100,19 @@ const Navbar = props => {
           {/* ICONS */}
           <HStack gap={1}>
             <ShoppingCart />
-            <Button variant="ghost" size="sm">
-              <Image
-                src="/images/person.svg"
-                alt="person icon"
-                width={22}
-                height={22}
-              />
-            </Button>
+            <NextLink
+              href={'http://eco-back.gelk.studio/dashboard/auth?action=login'}
+              passHref
+            >
+              <Button variant="ghost" size="sm">
+                <Image
+                  src="/images/person.svg"
+                  alt="person icon"
+                  width={22}
+                  height={22}
+                />
+              </Button>
+            </NextLink>
           </HStack>
           {/* MENU MOBILE */}
           <Box display={{ base: 'block', md: 'none' }} ms={2}>
